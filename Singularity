@@ -26,15 +26,17 @@ Include: yum
     cd ${OPENMPI_NAME}
     ./configure --prefix=/usr/local
     make all install
+    /usr/local/bin/mpicc examples/ring_c.c -o /usr/bin/mpi_ring
+    cd /
 
 #osu bench
-     OSU_VERSION=5.4.2
-     wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-${OSU_VERSION}.tar.gz
-     tar -xvf osu-micro-benchmarks-${OSU_VERSION}.tar.gz
-     cd osu-micro-benchmarks-${OSU_VERSION}
-     ./configure --prefix=/usr/local CC=/usr/local/bin/mpicc CXX=/usr/local/bin/mpicxx
-     make
-     make install
+    OSU_VERSION=5.4.2
+    wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-${OSU_VERSION}.tar.gz
+    tar -xvf osu-micro-benchmarks-${OSU_VERSION}.tar.gz
+    cd osu-micro-benchmarks-${OSU_VERSION}
+    ./configure --prefix=/usr/local CC=/usr/local/bin/mpicc CXX=/usr/local/bin/mpicxx
+    make
+    make install
 
 %runscript
     /usr/local/libexec/osu-micro-benchmarks/mpi/pt2pt/osu_bw
