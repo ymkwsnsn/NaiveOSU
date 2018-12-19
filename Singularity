@@ -30,7 +30,7 @@ Include: yum
     cd /
 
 #osu bench
-    OSU_VERSION=5.4.2
+    OSU_VERSION=5.5
     wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-${OSU_VERSION}.tar.gz
     tar -xvf osu-micro-benchmarks-${OSU_VERSION}.tar.gz
     cd osu-micro-benchmarks-${OSU_VERSION}
